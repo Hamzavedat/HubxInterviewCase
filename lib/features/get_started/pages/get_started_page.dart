@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hubx_case/extensions/build_context_extension.dart';
+import 'package:hubx_case/core/constants/app_assets.dart';
+import 'package:hubx_case/core/constants/app_routes.dart';
 
 part '../widgets/background_blob_left.dart';
 part '../widgets/background_blob_right.dart';

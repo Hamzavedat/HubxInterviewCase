@@ -8,15 +8,41 @@ class AppStyles extends ThemeExtension<AppStyles> {
 
   //region Text Styles
 
-  late TextStyle robotoRegular = GoogleFonts.roboto().copyWith(fontWeight: FontWeight.w400, color: _scheme.textColor);
+  late TextStyle robotoRegular = GoogleFonts.roboto().copyWith(
+    fontWeight: FontWeight.w400,
+    color: _scheme.textColor,
+  );
   late TextStyle roboto28Regular = robotoRegular.copyWith(fontSize: 28);
   late TextStyle roboto16Regular = robotoRegular.copyWith(fontSize: 16);
   late TextStyle roboto11Regular = robotoRegular.copyWith(fontSize: 11);
-  late TextStyle roboto11RegularText2Color = roboto11Regular.copyWith(fontSize: 11, color: _scheme.text2Color);
+  late TextStyle roboto11RegularText2Color = roboto11Regular.copyWith(
+    fontSize: 11,
+    color: _scheme.text2Color,
+  );
 
-  late TextStyle robotoSemiBold = GoogleFonts.roboto().copyWith(fontWeight: FontWeight.w600, color: _scheme.textColor);
+  late TextStyle robotoSemiBold = GoogleFonts.roboto().copyWith(
+    fontWeight: FontWeight.w600,
+    color: _scheme.textColor,
+  );
   late TextStyle roboto16SemiBold = robotoSemiBold.copyWith(fontSize: 16);
   late TextStyle roboto28SemiBold = robotoSemiBold.copyWith(fontSize: 28);
+  late TextStyle robotoMedium = GoogleFonts.roboto().copyWith(
+    fontWeight: FontWeight.w500,
+    color: _scheme.textColor,
+  );
+  late TextStyle roboto28Medium = robotoMedium.copyWith(fontSize: 28);
+
+  late TextStyle robotoBold = GoogleFonts.roboto().copyWith(
+    fontWeight: FontWeight.w700,
+    color: _scheme.textColor,
+  );
+  late TextStyle roboto28Bold = robotoBold.copyWith(fontSize: 28);
+
+  late TextStyle robotoExtraBold = GoogleFonts.roboto().copyWith(
+    fontWeight: FontWeight.w800,
+    color: _scheme.textColor,
+  );
+  late TextStyle roboto28ExtraBold = robotoExtraBold.copyWith(fontSize: 28);
   //endregion
 
   //region Button Styles

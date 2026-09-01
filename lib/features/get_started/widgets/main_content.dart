@@ -36,7 +36,7 @@ class _MainContent extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Image.asset(
-                    'assets/images/get_started_bg.png',
+                    AppAssets.getStartedBg,
                     fit: BoxFit.fitWidth,
                     width: context.width,
                   ),
@@ -50,7 +50,10 @@ class _MainContent extends StatelessWidget {
               spacing: 16,
               mainAxisSize: MainAxisSize.min,
               children: [
-                ElevatedButton(onPressed: () {}, child: const Text("Get Started")),
+                ElevatedButton(
+                  onPressed: () => Navigator.pushNamed(context, AppRoutes.onboarding),
+                  child: const Text("Get Started"),
+                ),
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
@@ -63,7 +66,10 @@ class _MainContent extends StatelessWidget {
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                      TextSpan(text: " & ", style: context.appStyle.roboto11RegularText2Color),
+                      TextSpan(
+                        text: " & ",
+                        style: context.appStyle.roboto11RegularText2Color,
+                      ),
                       TextSpan(
                         text: "Privacy Policy",
                         style: context.appStyle.roboto11RegularText2Color.copyWith(
