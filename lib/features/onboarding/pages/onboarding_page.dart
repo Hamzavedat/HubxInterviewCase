@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hubx_case/core/constants/app_assets.dart';
+import 'package:hubx_case/core/constants/app_routes.dart';
 import 'package:hubx_case/extensions/build_context_extension.dart';
 
 part '../widgets/onboarding_step_one.dart';
@@ -24,8 +25,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      // TODO: Navigate to Paywall when ready
-      // Navigator.pushNamed(context, AppRoutes.paywall);
+      Navigator.pushNamed(context, AppRoutes.paywall);
     }
   }
 

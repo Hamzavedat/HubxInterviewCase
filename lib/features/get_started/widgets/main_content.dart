@@ -20,10 +20,10 @@ class _MainContent extends StatelessWidget {
                     child: Container(
                       height: 1,
                       decoration: BoxDecoration(
-                        color: Colors.transparent,
+                        color: context.appColorScheme.transparent,
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.7),
+                            color: context.appColorScheme.black70,
                             blurRadius: 19,
                             spreadRadius: 1,
                             blurStyle: BlurStyle.normal,
