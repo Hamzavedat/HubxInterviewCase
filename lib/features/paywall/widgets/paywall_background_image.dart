@@ -26,25 +26,6 @@ class _PaywallBackgroundImage extends StatelessWidget {
             ),
           ),
         ),
-        SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 8, right: 20),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: context.appColorScheme.black40,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(Icons.close, color: context.appColorScheme.white, size: 16),
-                ),
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }

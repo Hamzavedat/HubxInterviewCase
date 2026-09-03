@@ -17,6 +17,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentIndex = 0;
+  bool _navigatedToPaywall = false;
 
   void _onContinue() {
     if (_currentIndex == 0) {
@@ -93,18 +94,33 @@ class _OnboardingPageState extends State<OnboardingPage> {
             Column(
               children: [
                 Expanded(
-                  child: PageView(
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentIndex = index;
-                      });
+                  child: NotificationListener<ScrollNotification>(
+                    onNotification: (notification) {
+                      if (notification.metrics.pixels >
+                          notification.metrics.maxScrollExtent + 40) {
+                        if (!_navigatedToPaywall && _currentIndex == 1) {
+                          _navigatedToPaywall = true;
+                          Navigator.pushNamed(context, AppRoutes.paywall).then((_) {
+                            _navigatedToPaywall = false;
+                          });
+                        }
+                      }
+                      return false;
                     },
-                    children: const [_OnboardingStepOne(), _OnboardingStepTwo()],
+                    child: PageView(
+                      controller: _pageController,
+                      physics: const BouncingScrollPhysics(),
+                      onPageChanged: (index) {
+                        setState(() {
+                          _currentIndex = index;
+                        });
+                      },
+                      children: const [_OnboardingStepOne(), _OnboardingStepTwo()],
+                    ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 28.0, left: 20.0, right: 20.0),
+                  padding: const EdgeInsets.only(bottom: 28, left: 20, right: 20),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [

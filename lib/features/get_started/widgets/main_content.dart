@@ -16,7 +16,7 @@ class _MainContent extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 93.0),
+                    padding: const EdgeInsets.only(bottom: 93),
                     child: Container(
                       height: 1,
                       decoration: BoxDecoration(
@@ -45,7 +45,7 @@ class _MainContent extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 28.0, left: 20.0, right: 20.0),
+            padding: const EdgeInsets.only(bottom: 28, left: 20, right: 20),
             child: Column(
               spacing: 16,
               mainAxisSize: MainAxisSize.min,

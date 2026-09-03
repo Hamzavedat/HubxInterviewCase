@@ -8,8 +8,15 @@ class _PaywallFooter extends StatelessWidget {
     return Column(
       children: [
         ElevatedButton(
-          onPressed: () {
-            // Navigator.pushNamedAndRemoveUntil(context, AppRoutes.home, (route) => false);
+          onPressed: () async {
+            await AppContainer.getIt<PreferencesService>().setHasOnboarded(true);
+            if (context.mounted) {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                AppRoutes.home,
+                (route) => false,
+              );
+            }
           },
           child: const Text("Try free for 3 days"),
         ),

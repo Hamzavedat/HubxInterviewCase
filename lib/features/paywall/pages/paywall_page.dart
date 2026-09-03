@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:hubx_case/core/constants/app_assets.dart';
+import 'package:hubx_case/core/constants/app_routes.dart';
+import 'package:hubx_case/core/di/app_container.dart';
+import 'package:hubx_case/core/services/preferences_service.dart';
 import 'package:hubx_case/extensions/build_context_extension.dart';
 import 'package:hubx_case/features/paywall/enums/subscription_type.dart';
 
@@ -22,6 +25,17 @@ class PaywallPage extends StatefulWidget {
 
 class _PaywallPageState extends State<PaywallPage> {
   SubscriptionType _selectedSubscription = SubscriptionType.yearly;
+
+  void _onClose() async {
+    await AppContainer.getIt<PreferencesService>().setHasOnboarded(true);
+    if (!mounted) return;
+
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    } else {
+      Navigator.pushReplacementNamed(context, AppRoutes.home);
+    }
+  }
 
   void _onSubscriptionSelect(SubscriptionType type) {
     setState(() {
@@ -73,6 +87,21 @@ class _PaywallPageState extends State<PaywallPage> {
                 child: SafeArea(top: false, child: _PaywallFooter()),
               ),
             ],
+          ),
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 8,
+            right: 20,
+            child: GestureDetector(
+              onTap: _onClose,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: context.appColorScheme.black40,
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(Icons.close, color: context.appColorScheme.white, size: 16),
+              ),
+            ),
           ),
         ],
       ),

@@ -11,6 +11,7 @@ class AppStyles extends ThemeExtension<AppStyles> {
       .copyWith(fontWeight: FontWeight.w400, color: _scheme.textColor);
   late TextStyle roboto28Regular = robotoRegular.copyWith(fontSize: 28);
   late TextStyle roboto16Regular = robotoRegular.copyWith(fontSize: 16);
+  late TextStyle roboto15Regular = robotoRegular.copyWith(fontSize: 15);
   late TextStyle roboto13Regular = robotoRegular.copyWith(fontSize: 13);
   late TextStyle roboto12Regular = robotoRegular.copyWith(fontSize: 12);
   late TextStyle roboto11Regular = robotoRegular.copyWith(fontSize: 11);
@@ -33,6 +34,7 @@ class AppStyles extends ThemeExtension<AppStyles> {
   late TextStyle robotoMedium = const TextStyle(fontFamily: 'Roboto')
       .copyWith(fontWeight: FontWeight.w500, color: _scheme.textColor);
   late TextStyle roboto28Medium = robotoMedium.copyWith(fontSize: 28);
+  late TextStyle roboto24Medium = robotoMedium.copyWith(fontSize: 24);
   late TextStyle roboto20Medium = robotoMedium.copyWith(fontSize: 20);
   late TextStyle roboto16Medium = robotoMedium.copyWith(fontSize: 16);
   late TextStyle roboto12Medium = robotoMedium.copyWith(fontSize: 12);
@@ -53,6 +55,7 @@ class AppStyles extends ThemeExtension<AppStyles> {
   late TextStyle roboto20MediumWhite = roboto20Medium.copyWith(color: _scheme.white);
   late TextStyle roboto17LightWhite = roboto17Light.copyWith(color: _scheme.white);
   late TextStyle roboto16MediumWhite = roboto16Medium.copyWith(color: _scheme.white);
+  late TextStyle roboto15RegularWhite = roboto15Regular.copyWith(color: _scheme.white);
   late TextStyle roboto13RegularWhite = roboto13Regular.copyWith(color: _scheme.white);
   late TextStyle roboto12LightWhite = roboto12Light.copyWith(color: _scheme.white);
   late TextStyle roboto12RegularWhite = roboto12Regular.copyWith(color: _scheme.white);
@@ -60,9 +63,7 @@ class AppStyles extends ThemeExtension<AppStyles> {
   late TextStyle roboto11RegularWhite52 = roboto11Regular.copyWith(
     color: _scheme.white52,
   );
-  late TextStyle roboto9LightWhite52 = roboto9Light.copyWith(
-    color: _scheme.white52,
-  );
+  late TextStyle roboto9LightWhite52 = roboto9Light.copyWith(color: _scheme.white52);
   //endregion
 
   //region Button Styles
@@ -76,6 +77,29 @@ class AppStyles extends ThemeExtension<AppStyles> {
     elevation: 0,
   );
 
+  //region Input Styles
+  InputDecoration searchInputDecoration(String hintText) {
+    return InputDecoration(
+      hintText: hintText,
+      hintStyle: roboto16Regular.copyWith(color: _scheme.text2Color),
+      prefixIcon: Icon(Icons.search, color: _scheme.text2Color),
+      filled: true,
+      fillColor: _scheme.white,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide.none,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: _scheme.primaryColor),
+      ),
+    );
+  }
   //endregion
 
   @override
