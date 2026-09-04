@@ -13,11 +13,12 @@ abstract class HomeRepository {
 }
 
 class HomeRepositoryImpl implements HomeRepository {
-  final HomeService _homeService = AppContainer.getIt<HomeService>();
+  final HomeService _homeService;
   List<CategoryModel>? _cachedCategories;
   List<QuestionModel>? _cachedQuestions;
 
-  HomeRepositoryImpl();
+  HomeRepositoryImpl({HomeService? homeService})
+    : _homeService = homeService ?? AppContainer.getIt<HomeService>();
 
   @override
   Future<List<CategoryModel>> getCategoriesList() async {

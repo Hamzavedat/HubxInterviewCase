@@ -18,3 +18,11 @@ Uygulamayı ortam konfigürasyonu (`env/dev.json`) ile çalıştırmak için:
 ```bash
 flutter run --dart-define-from-file=env/dev.json
 ```
+
+## Testleri Çalıştırma
+
+Unit ve widget testlerini çalıştırmak için:
+
+```bash
+flutter test
+```

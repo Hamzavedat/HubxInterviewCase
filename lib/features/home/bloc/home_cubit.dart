@@ -9,9 +9,11 @@ import 'package:hubx_case/data/repositories/home_repository.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final HomeRepository _homeRepository = AppContainer.getIt<HomeRepository>();
+  final HomeRepository _homeRepository;
 
-  HomeCubit() : super(HomeInitial()) {
+  HomeCubit({HomeRepository? homeRepository})
+    : _homeRepository = homeRepository ?? AppContainer.getIt<HomeRepository>(),
+      super(HomeInitial()) {
     fetchData();
   }
 

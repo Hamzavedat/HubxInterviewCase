@@ -32,6 +32,8 @@ class PlantAppBottomBar extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 22.5, sigmaY: 22.5),
           child: SafeArea(
+            top: false,
+            bottom: false,
             child: SizedBox(
               height: 60,
               child: Stack(
@@ -70,13 +72,16 @@ class PlantAppBottomBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(assetPath, width: 26, height: 26, color: color),
-            const SizedBox(height: 4),
+            Image.asset(assetPath, width: 24, height: 24, color: color),
+            const SizedBox(height: 2),
             Text(
               label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: context.appStyle.roboto13Regular.copyWith(
-                fontSize: 11,
+                fontSize: 10,
                 color: color,
+                height: 1.0,
               ),
             ),
           ],
